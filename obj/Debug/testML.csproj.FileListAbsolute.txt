@@ -1,0 +1,15 @@
+C:\Users\zhouys\source\repos\dftell\testMl\obj\Debug\testML.csprojAssemblyReference.cache
+C:\Users\zhouys\source\repos\dftell\testMl\obj\Debug\testML.exe.config
+C:\Users\zhouys\source\repos\dftell\testMl\obj\Debug\testML.Properties.Resources.resources
+C:\Users\zhouys\source\repos\dftell\testMl\obj\Debug\testML.csproj.GenerateResource.cache
+C:\Users\zhouys\source\repos\dftell\testMl\obj\Debug\testML.csproj.CoreCompileInputs.cache
+C:\Users\zhouys\source\repos\bin\testML\FactorizationMachineNative.dll
+C:\Users\zhouys\source\repos\bin\testML\FastTreeNative.dll
+C:\Users\zhouys\source\repos\bin\testML\LdaNative.dll
+C:\Users\zhouys\source\repos\bin\testML\CpuMathNative.dll
+C:\Users\zhouys\source\repos\bin\testML\testML.exe.config
+C:\Users\zhouys\source\repos\bin\testML\testML.exe
+C:\Users\zhouys\source\repos\bin\testML\testML.pdb
+C:\Users\zhouys\source\repos\dftell\testMl\obj\Debug\testML.csproj.CopyComplete
+C:\Users\zhouys\source\repos\dftell\testMl\obj\Debug\testML.exe
+C:\Users\zhouys\source\repos\dftell\testMl\obj\Debug\testML.pdb

@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.ML.Ensemble</name>
+    </assembly>
+    <members>
+        <member name="M:Microsoft.ML.Runtime.Ensemble.EnsembleUtils.SelectFeatures(Microsoft.ML.Runtime.IHost,Microsoft.ML.Runtime.Data.RoleMappedData,System.Collections.BitArray)">
+            <summary>
+            Return a dataset with non-selected features zeroed out.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Runtime.Ensemble.EnsembleUtils.SelectFeatures``1(Microsoft.ML.Runtime.Data.VBuffer{``0}@,System.Collections.BitArray,System.Int32,Microsoft.ML.Runtime.Data.VBuffer{``0}@)">
+            <summary>
+            Fill dst with values selected from src if the indices of the src values are set in includedIndices,
+            otherwise assign default(T). The length of dst will be equal to src.Length.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Runtime.Ensemble.OutputCombiners.SignatureCombiner">
+            <summary>
+            Signature for combiners.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Runtime.Ensemble.OutputCombiners.IOutputCombiner`1">
+            <summary>
+            Generic interface for combining outputs of multiple models
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Runtime.Ensemble.OutputCombiners.Median">
+            <summary>
+            Generic interface for combining outputs of multiple models
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Runtime.Ensemble.OutputCombiners.MultiMedian">
+            <summary>
+            Generic interface for combining outputs of multiple models
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Runtime.Ensemble.OutputCombiners.MultiWeightedAverage">
+            <summary>
+            Generic interface for combining outputs of multiple models
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Runtime.Ensemble.SchemaBindablePipelineEnsembleBase">
+            <summary>
+            This class represents an ensemble predictor, where each predictor has its own featurization pipeline. It is
+            useful for the distributed training scenario, where the featurization includes trainable transforms (for example,
+            categorical transform, or normalization).
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Runtime.Ensemble.SchemaBindablePipelineEnsembleBase.GetSummaryInKeyValuePairs(Microsoft.ML.Runtime.Data.RoleMappedSchema)">
+            <summary>
+            This method outputs a Key-Value Pair (kvp) per model in the ensemble.
+              * The key is the model number such as "Partition model 0 summary". If the model implements <see cref="T:Microsoft.ML.Runtime.Internal.Internallearn.ICanSaveSummary"/>
+                then this string is followed by the first line of the model summary (the first line contains a description specific to the
+                model kind, such as "Feature gains" for FastTree or "Feature weights" for linear).
+              * The value:
+                  - If the model implements <see cref="T:Microsoft.ML.Runtime.Internal.Internallearn.ICanGetSummaryInKeyValuePairs"/> then the value is the list of Key-Value pairs
+                    containing the detailed summary for that model (for example, linear models have a list containing kvps where the keys
+                    are the feature names and the values are the weights. FastTree has a similar list with the feature gains as values).
+                  - If the model does not implement <see cref="T:Microsoft.ML.Runtime.Internal.Internallearn.ICanGetSummaryInKeyValuePairs"/> but does implement <see cref="T:Microsoft.ML.Runtime.Internal.Internallearn.ICanSaveSummary"/>,
+                    the value is a string containing the summary of that model.
+                  - If neither of those interfaces are implemented then the value is a string containing the name of the type of model.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.ML.Runtime.Ensemble.Selector.SubModelSelector.BaseDiverseSelector`2.Prune(System.Collections.Generic.IList{Microsoft.ML.Runtime.Ensemble.FeatureSubsetModel{Microsoft.ML.Runtime.IPredictorProducing{`0}}})">
+            <summary>
+            This calculates the diversity by calculating the disagreement measure which is defined as the sum of number of instances correctly(incorrectly)
+            classified by first classifier and incorrectly(correctly) classified by the second classifier over the total number of instances.
+            All the pairwise classifiers are sorted out to take the most divers classifiers.
+            </summary>
+            <param name="models"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.ML.Runtime.Ensemble.EnsembleTrainer">
+            <summary>
+            A generic ensemble trainer for binary classification.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Runtime.Ensemble.EnsemblePredictorBase`2.SaveAsText(System.IO.TextWriter,Microsoft.ML.Runtime.Data.RoleMappedSchema)">
+            <summary>
+            Output the INI model to a given writer
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Runtime.Ensemble.EnsemblePredictorBase`2.SaveSummary(System.IO.TextWriter,Microsoft.ML.Runtime.Data.RoleMappedSchema)">
+            <summary>
+            Saves the model summary
+            </summary>
+        </member>
+        <member name="F:Microsoft.ML.Runtime.Ensemble.EnsembleTrainerBase`4.Args">
+            <summary> Command-line arguments </summary>
+        </member>
+        <member name="F:Microsoft.ML.Runtime.Ensemble.EnsembleTrainerBase`4.Trainers">
+            <summary> Ensemble members </summary>
+        </member>
+        <member name="T:Microsoft.ML.Runtime.Ensemble.IModelCombiner">
+            <summary>
+            An interface that combines multiple predictors into a single predictor.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Runtime.Ensemble.MulticlassDataPartitionEnsembleTrainer">
+            <summary>
+            A generic ensemble classifier for multi-class classification
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Runtime.EntryPoints.EnsembleCreator">
+            <summary>
+            A component to combine given models into an ensemble model.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Runtime.EntryPoints.EnsembleCreator.ClassifierCombiner">
+            <summary>
+            These are the combiner options for binary and multi class classifiers.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Runtime.EntryPoints.EnsembleCreator.ScoreCombiner">
+            <summary>
+            These are the combiner options for regression and anomaly detection.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Runtime.EntryPoints.EnsembleCreator.SerializeRoleMappedData(Microsoft.ML.Runtime.IHostEnvironment,Microsoft.ML.Runtime.IChannel,Microsoft.ML.Runtime.Data.RoleMappedData,System.Byte[][]@,System.String[]@)">
+             <summary>
+             This method takes a <see cref="T:Microsoft.ML.Runtime.Data.RoleMappedData"/> as input, saves it as an in-memory <see cref="T:System.IO.Compression.ZipArchive"/>
+             and returns two arrays indexed by the entries in the zip:
+             1. An array of byte arrays, containing the byte sequences of each entry.
+             2. An array of strings, containing the name of each entry.
+            
+             This method is used for comparing pipelines. Its outputs can be passed to <see cref="M:Microsoft.ML.Runtime.EntryPoints.EnsembleCreator.CheckSamePipeline(Microsoft.ML.Runtime.IHostEnvironment,Microsoft.ML.Runtime.IChannel,Microsoft.ML.Runtime.Data.RoleMappedData,System.Byte[][],System.String[])"/>
+             to check if this pipeline is identical to another pipeline.
+             </summary>
+        </member>
+        <member name="M:Microsoft.ML.Runtime.EntryPoints.EnsembleCreator.CheckSamePipeline(Microsoft.ML.Runtime.IHostEnvironment,Microsoft.ML.Runtime.IChannel,Microsoft.ML.Runtime.Data.RoleMappedData,System.Byte[][],System.String[])">
+            <summary>
+            This method compares two pipelines to make sure they are identical. The first pipeline is passed
+            as a <see cref="T:Microsoft.ML.Runtime.Data.RoleMappedData"/>, and the second as a double byte array and a string array. The double
+            byte array and the string array are obtained by calling <see cref="M:Microsoft.ML.Runtime.EntryPoints.EnsembleCreator.SerializeRoleMappedData(Microsoft.ML.Runtime.IHostEnvironment,Microsoft.ML.Runtime.IChannel,Microsoft.ML.Runtime.Data.RoleMappedData,System.Byte[][]@,System.String[]@)"/> on the
+            second pipeline.
+            The comparison is done by saving <see ref="dataToCompare"/> as an in-memory <see cref="T:System.IO.Compression.ZipArchive"/>,
+            and for each entry in it, comparing its name, and the byte sequence to the corresponding entries in
+            <see ref="dataZipEntryNames"/> and <see ref="dataSerialized"/>.
+            This method throws if for any of the entries the name/byte sequence are not identical.
+            </summary>
+        </member>
+    </members>
+</doc>
