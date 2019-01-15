@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.ML.Probabilistic.Compiler.Visualizers.Windows</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.FactorManagerView">
+            <summary>
+            Provides a view of the factors available to Infer.NET and their level of support
+            for different inference algorithms.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.FactorManagerView.GetAlgorithmPatterns(Microsoft.ML.Probabilistic.Models.Attributes.IAlgorithm,Microsoft.ML.Probabilistic.Compiler.Transforms.FactorManager.FactorInfo,System.Boolean,Microsoft.ML.Probabilistic.Factors.Attributes.QualityBand@,Microsoft.ML.Probabilistic.Factors.Attributes.QualityBand@,Microsoft.ML.Probabilistic.Factors.Attributes.QualityBand@)">
+            <summary>
+            Returns a collection of possible type patterns for the fields of info.  Patterns may be incomplete.
+            </summary>
+            <param name="alg"></param>
+            <param name="info"></param>
+            <param name="ShowMissingEvidences"></param>
+            <param name="minQB">The minimum quality band attached to an operator for this factor</param>
+            <param name="modeQB">The most common quality band attached to operators for this factor</param>
+            <param name="maxQB">The maximum quality band attached to operators for this factor</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.FactorManagerView.IntersectPatterns(System.Collections.Generic.IEnumerable{Microsoft.ML.Probabilistic.Compiler.Visualizers.FactorManagerView.StochasticityPattern})">
+            <summary>
+            Create a new set of patterns containing the closure of all pairwise intersections of patterns.
+            </summary>
+            <param name="patterns"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.FactorManagerView.AddIntersections(System.Collections.Generic.ICollection{Microsoft.ML.Probabilistic.Compiler.Visualizers.FactorManagerView.StochasticityPattern})">
+            <summary>
+            Modify the collection by adding all pairwise intersections of patterns.
+            </summary>
+            <param name="patterns"></param>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.FactorManagerView.AddDeterministicPatterns(System.Collections.Generic.IEnumerable{Microsoft.ML.Probabilistic.Compiler.Visualizers.FactorManagerView.StochasticityPattern})">
+            <summary>
+            Expand the list of patterns by substituting each stochastic type with a deterministic type.
+            </summary>
+            <param name="patterns"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.FactorManagerView.StochasticityPattern">
+            <summary>
+            Represents a pattern of stochasticity in the arguments and return value
+            of a function.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.FactorManagerView.StochasticityPattern.IsStochasticFactorOnly">
+            <summary>
+            Is the pattern (D D D) -> S?
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.FactorManagerView.StochasticityPattern.IsAssignableFrom(Microsoft.ML.Probabilistic.Compiler.Reflection.GenericParameterFactory.Constraints,Microsoft.ML.Probabilistic.Compiler.Reflection.GenericParameterFactory.Constraints)">
+            <summary>
+            True if c2 is more constrained than c1.
+            </summary>
+            <param name="c1"></param>
+            <param name="c2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.FactorManagerView.StochasticityPattern.Intersect(Microsoft.ML.Probabilistic.Compiler.Visualizers.FactorManagerView.StochasticityPattern)">
+            <summary>
+            Create a new pattern whose opTypes are the intersection of corresponding opTypes
+            </summary>
+            <param name="that"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.FactorManagerView.StochasticityPattern.IntersectTypes(System.Type,System.Type)">
+            <summary>
+            Get a type which is the most specific of the input types.
+            </summary>
+            <param name="t1"></param>
+            <param name="t2"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.ML.Probabilistic.Compiler.Visualizers.ModelView.Model">
+            <summary>
+            The model being shown in the view
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.ModelView.WriteDgml(System.String)">
+            <summary>
+            Write the graph to a file in DGML format
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.TaskGraphView">
+            <summary>
+            A view of a task graph, which is a schedule when the tasks are message computations.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ML.Probabilistic.Compiler.Visualizers.TaskGraphView.Builder">
+            <summary>
+            Helps build class declarations
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.AttributeView">
+            <summary>
+            Interaction logic for AttributeView.xaml
+            </summary>
+            <summary>
+            AttributeView
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.AttributeView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.CodeElementInspectorView">
+            <summary>
+            Interaction logic for CodeElementInspectorView.xaml
+            </summary>
+            <summary>
+            CodeElementInspectorView
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.CodeElementInspectorView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.CodeSearchQuery">
+            <summary>
+            A search query on lines of code.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.CodeSearchQuery.FromQueryString(System.String)">
+            <summary>
+            Creates a code search query from a query string.
+            </summary>
+            <param name="queryString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.CollapsedCodeView">
+            <summary>
+            Interaction logic for CollapsedCodeView.xaml
+            </summary>
+            <summary>
+            CollapsedCodeView
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.CollapsedCodeView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.ConsolidatingEventListener`1">
+            <summary>
+            An event listener which consolidates events which are close by in time, effectively suppressing
+            the earlier events.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.DeclarationView">
+            <summary>
+            Interaction logic for DeclarationView.xaml
+            </summary>
+            <summary>
+            DeclarationView
+            </summary>
+        </member>
+        <member name="F:Microsoft.ML.Probabilistic.Compiler.Visualizers.DeclarationView.parentOfLine">
+            <summary>
+            Used by CodeElementInspector.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ML.Probabilistic.Compiler.Visualizers.DeclarationView.Query">
+            <summary>
+            The current search query (or null if none)
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.DeclarationView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.LineOfCode">
+            <summary>
+            Represents a line of source code
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.MatchedLine">
+            <summary>
+            View model for a line of code with query match information
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.FaintLine">
+            <summary>
+            View model for a 'faint' i.e. faded out, line of code
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.CollapsedCode">
+            <summary>
+            View model for a collapsed block of code
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.LineOfCodeView">
+            <summary>
+            Interaction logic for LineOfCodeView.xaml
+            </summary>
+            <summary>
+            LineOfCodeView
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.LineOfCodeView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.SyntaxHighlighting.PrintWithVerySimpleSyntaxHighlighting(System.Windows.Controls.TextBlock,System.String,System.Text.RegularExpressions.MatchCollection)">
+            <summary>
+            Very simple syntax highlighting (copied from the examples browser)
+            </summary>
+            <param name="tb"></param>
+            <param name="s"></param>
+            <param name="matches"></param>
+        </member>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.TransformChainView">
+            <summary>
+            The top-level control for the transform browser.  It contains a TransformerView that shows the selected transform.
+            The TransformerView contains a DeclarationView and a CodeElementInspector.
+            </summary>
+            <summary>
+            TransformChainView
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.TransformChainView.ShowInWindow(System.String,Microsoft.ML.Probabilistic.Compiler.Visualizers.TransformChainView,System.Boolean)">
+            <summary>
+            Show this view in a window.
+            </summary>
+            <param name="title"></param>
+            <param name="tcv"></param>
+            <param name="maximise"></param>
+        </member>
+        <member name="P:Microsoft.ML.Probabilistic.Compiler.Visualizers.TransformChainView.SelectedTransformer">
+            <summary>
+            The currently selected code transformer.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.TransformChainView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.TransformConverter">
+            <summary>
+            Converts a CodeTransformer to various visual property values, depending on the parameter.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.TransformerView">
+            <summary>
+            Interaction logic for TransformerView.xaml
+            </summary>
+            <summary>
+            TransformerView
+            </summary>
+        </member>
+        <member name="M:Microsoft.ML.Probabilistic.Compiler.Visualizers.TransformerView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Microsoft.ML.Probabilistic.Compiler.Visualizers.TransformErrorConverter">
+            <summary>
+            Converts a TransformError to various values for the error table, depending on the parameter.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

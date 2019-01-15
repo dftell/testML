@@ -13,3 +13,4 @@ C:\Users\zhouys\source\repos\bin\testML\testML.pdb
 C:\Users\zhouys\source\repos\dftell\testMl\obj\Debug\testML.csproj.CopyComplete
 C:\Users\zhouys\source\repos\dftell\testMl\obj\Debug\testML.exe
 C:\Users\zhouys\source\repos\dftell\testMl\obj\Debug\testML.pdb
+C:\Users\zhouys\source\repos\dftell\testMl\obj\Debug\testML.Form1.resources
